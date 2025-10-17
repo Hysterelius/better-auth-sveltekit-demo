@@ -1,5 +1,6 @@
 import { form, getRequestEvent } from '$app/server';
 import { auth } from '$lib/auth';
+import { redirect } from '@sveltejs/kit';
 import { type } from 'arktype';
 
 export const loginUser = form(
@@ -15,5 +16,7 @@ export const loginUser = form(
 			},
 			headers: getRequestEvent().request.headers
 		});
+
+		redirect(303, '/dashboard');
 	}
 );

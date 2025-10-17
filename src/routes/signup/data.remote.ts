@@ -1,5 +1,6 @@
 import { form } from '$app/server';
 import { auth } from '$lib/auth';
+import { redirect } from '@sveltejs/kit';
 import { type } from 'arktype';
 
 export const addUser = form(
@@ -18,5 +19,6 @@ export const addUser = form(
 		});
 
 		// redirect to dashboard
+		redirect(307, '/dashboard');
 	}
 );

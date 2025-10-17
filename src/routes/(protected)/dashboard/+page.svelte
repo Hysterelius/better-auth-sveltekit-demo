@@ -9,7 +9,13 @@
 
 <h1>Dashboard</h1>
 
-<div>{await getSecret()}</div>
+<svelte:boundary>
+	<span>Protected Data</span>
+	<p>Secret: {await getSecret()}</p>
+	{#snippet pending()}
+		<p>loading...</p>
+	{/snippet}
+</svelte:boundary>
 
 <pre>
     {prettyAuthSession}
