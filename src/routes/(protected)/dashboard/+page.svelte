@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getAuthSession } from '../../api/auth.remote';
-	import { getSecret } from './data.remote';
+	import { getDelayedData } from './data.remote';
 
 	const authSession = await getAuthSession();
 
@@ -11,7 +11,7 @@
 
 <svelte:boundary>
 	<span>Protected Data</span>
-	<p>Secret: {await getSecret()}</p>
+	<p>Secret: {await getDelayedData()}</p>
 	{#snippet pending()}
 		<p>loading...</p>
 	{/snippet}
